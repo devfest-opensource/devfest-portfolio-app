@@ -1,4 +1,4 @@
-import 'package:devfest_portfolio_app/presentation/home-screen/home_screen.dart';
+import 'package:devfest_portfolio_app/presentation/splash-screen/splash_screen.dart';
 import 'package:devfest_portfolio_app/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               home: child);
         },
-        child: const HomeScreen(),
+        child: const SplashScreen(),
       ),
     );
   }
