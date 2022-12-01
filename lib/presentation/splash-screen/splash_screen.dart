@@ -10,8 +10,12 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      splash: Image.asset('assets/Devfest_logo4.png',height: 250.h,width: 250.w,),
-      nextScreen: HomeScreen(),
+      splash: Image.asset(
+        'assets/Devfest_logo4.png',
+        height: 250.h,
+        width: 250.w,
+      ),
+      nextScreen: const HomeScreen(),
       backgroundColor: Colors.white,
       splashIconSize: MediaQuery.of(context).size.width,
       duration: 2000,
@@ -20,4 +24,3 @@ class SplashScreen extends StatelessWidget {
     );
   }
 }
-
