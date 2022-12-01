@@ -8,14 +8,14 @@ class SideBar extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.shade400,
-                offset: const Offset(0,0),
-                blurRadius: 5
-            )
-          ]
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade400,
+            offset: const Offset(0, 0),
+            blurRadius: 5,
+          ),
+        ],
       ),
       width: 60,
       child: SafeArea(
@@ -40,11 +40,10 @@ class SideBar extends StatelessWidget {
                   ),
                   Padding(
                       padding: const EdgeInsets.all(15),
-                      child: Image.asset('assets/images/devfest_side.png')
-                  ),
+                      child: Image.asset('assets/images/devfest_side.png')),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
