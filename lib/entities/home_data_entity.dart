@@ -7,6 +7,9 @@ import 'dart:convert';
 HomeDataEntity homeDataEntityFromJson(String str) =>
     HomeDataEntity.fromJson(json.decode(str));
 
+List<HomeDataEntity> previousDevfestDataEntityFromJson(List<dynamic> list) =>
+    List<HomeDataEntity>.from(list.map((x) => HomeDataEntity.fromJson(x)));
+
 String homeDataEntityToJson(HomeDataEntity data) => json.encode(data.toJson());
 
 class HomeDataEntity {

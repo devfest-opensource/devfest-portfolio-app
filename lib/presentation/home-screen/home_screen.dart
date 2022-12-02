@@ -3,6 +3,7 @@ import 'package:devfest_portfolio_app/presentation/home-screen/widgets/previous_
 import 'package:devfest_portfolio_app/presentation/home-screen/widgets/previous_text.dart';
 import 'package:devfest_portfolio_app/presentation/home-screen/widgets/side_bar.dart';
 import 'package:devfest_portfolio_app/providers/home-provider/home_provider.dart';
+import 'package:devfest_portfolio_app/providers/previous-devfest-provider/previous_devfest_provider.dart';
 import 'package:devfest_portfolio_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,10 +21,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    Provider.of<HomeProvider>(
-      context,
-      listen: false,
-    ).getHomeData();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<HomeProvider>(
+        context,
+        listen: false,
+      ).getHomeData();
+      Provider.of<PreviousDevfestProvider>(
+        context,
+        listen: false,
+      ).getPreviousDevfestData();
+    });
   }
 
   @override

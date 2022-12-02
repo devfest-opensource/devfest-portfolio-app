@@ -144,7 +144,9 @@ class HomeCard extends StatelessWidget {
                       InkWell(
                         onTap: () {
                           launchUrlString(
-                              homeState.homeDataEntity!.registrationLink);
+                            homeState.homeDataEntity!.registrationLink,
+                            mode: LaunchMode.externalApplication,
+                          );
                         },
                         child: Container(
                           height: 30.h,

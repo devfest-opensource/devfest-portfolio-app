@@ -11,7 +11,6 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-  late AnimationController animationController;
   late AnimationController rotateController;
   late final AnimationController _scaleController = AnimationController(
     duration: const Duration(seconds: 2),
@@ -25,22 +24,16 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 2000),
-    );
     rotateController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 2000),
     );
     rotateController.forward();
-    animationController.forward();
     _navigateToHomeScreen();
   }
 
   @override
   void dispose() {
-    animationController.dispose();
     rotateController.dispose();
     _scaleController.dispose();
     super.dispose();
@@ -54,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => HomeScreen(),
+        builder: (_) => const HomeScreen(),
       ),
     );
   }
