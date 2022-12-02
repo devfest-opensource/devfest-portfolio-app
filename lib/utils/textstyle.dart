@@ -9,3 +9,10 @@ final subHeading = GoogleFonts.poppins(
     fontWeight: FontWeight.bold,
   ),
 );
+final normalHeading = GoogleFonts.poppins(
+  textStyle: TextStyle(
+    color: Colors.black87,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.normal,
+  ),
+);

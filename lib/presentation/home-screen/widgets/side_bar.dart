@@ -39,8 +39,9 @@ class SideBar extends StatelessWidget {
                     size: 32,
                   ),
                   Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Image.asset('assets/images/devfest_side.png')),
+                    padding: const EdgeInsets.all(15),
+                    child: Image.asset('assets/images/devfest_side.png'),
+                  ),
                 ],
               ),
             ),
