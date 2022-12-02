@@ -11,14 +11,22 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late AnimationController animationController;
+  late AnimationController rotateController;
 
   @override
   void initState() {
     super.initState();
     animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 1000));
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    );
+    rotateController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    );
+    rotateController.forward();
     animationController.forward();
   }
 
@@ -33,10 +41,19 @@ class _SplashScreenState extends State<SplashScreen>
     return FadeTransition(
       opacity: animationController,
       child: AnimatedSplashScreen(
-        splash: Image.asset(
-          'assets/images/Devfest_logo4.png',
-          height: 250.h,
-          width: 250.w,
+        splash: AnimatedBuilder(
+          animation: rotateController,
+          builder: (BuildContext context, Widget? widget) {
+            return Transform.rotate(
+              angle: rotateController.value * 6.28,
+              child: widget,
+            );
+          },
+          child: Image.asset(
+            'assets/images/Devfest_logo4.png',
+            height: 250.h,
+            width: 250.w,
+          ),
         ),
         nextScreen: const HomeScreen(),
         backgroundColor: Colors.white,
