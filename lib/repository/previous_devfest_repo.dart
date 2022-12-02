@@ -4,7 +4,7 @@ class PreviousDevfestRepo {
   static Future<Response> getPreviousDevfestData() async {
     final Dio dio = Dio();
     final response = await dio
-        .get("https://devfest-portfolio-api-testing.up.railway.app/past");
+        .get("https://devfest-portfolio-api-production.up.railway.app/past");
 
     return response;
   }

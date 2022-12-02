@@ -38,48 +38,51 @@ class _HomeScreenState extends State<HomeScreen> {
     return Consumer<HomeProvider>(
       builder: (context, homeState, _) {
         return Scaffold(
-          body: Row(
-            children: [
-              const SideBar(),
-              homeState.homeEnum == HomeEnum.loading
-                  ? Padding(
-                      padding: EdgeInsets.only(left: 150.w),
-                      child: const CircularProgressIndicator(
-                        color: blueShade,
-                      ),
-                    )
-                  : SingleChildScrollView(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 15.w, vertical: 10.h),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 50.h,
-                            ),
-                            const HomeCard(),
-                            SizedBox(
-                              height: 75.h,
-                            ),
-                            SizedBox(
-                              key: dataKey,
-                              height: 75.h,
-                            ),
-                            InkWell(
-                              onTap: () => Scrollable.ensureVisible(
-                                  dataKey.currentContext!),
-                              child: const PreviousTextWidget(),
-                            ),
-                            SizedBox(
-                              height: 20.h,
-                            ),
-                            const PreviousCard(),
-                          ],
+          body: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                const SideBar(),
+                homeState.homeEnum == HomeEnum.loading
+                    ? Padding(
+                        padding: EdgeInsets.only(left: 150.w),
+                        child: const CircularProgressIndicator(
+                          color: blueShade,
+                        ),
+                      )
+                    : SingleChildScrollView(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 15.w, vertical: 10.h),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 50.h,
+                              ),
+                              const HomeCard(),
+                              SizedBox(
+                                height: 75.h,
+                              ),
+                              SizedBox(
+                                key: dataKey,
+                                height: 75.h,
+                              ),
+                              InkWell(
+                                onTap: () => Scrollable.ensureVisible(
+                                    dataKey.currentContext!),
+                                child: const PreviousTextWidget(),
+                              ),
+                              SizedBox(
+                                height: 20.h,
+                              ),
+                              const PreviousCard(),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-            ],
+              ],
+            ),
           ),
         );
       },

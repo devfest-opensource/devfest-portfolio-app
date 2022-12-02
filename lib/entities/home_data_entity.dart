@@ -6,7 +6,6 @@ import 'dart:convert';
 
 HomeDataEntity homeDataEntityFromJson(String str) =>
     HomeDataEntity.fromJson(json.decode(str));
-
 List<HomeDataEntity> previousDevfestDataEntityFromJson(List<dynamic> list) =>
     List<HomeDataEntity>.from(list.map((x) => HomeDataEntity.fromJson(x)));
 
@@ -33,7 +32,7 @@ class HomeDataEntity {
   String time;
   String date;
   String image;
-  List<Organizer> speakers;
+  List<Speaker> speakers;
   List<Organizer> organizers;
   List<String> links;
 
@@ -45,8 +44,8 @@ class HomeDataEntity {
         time: json["time"],
         date: json["date"],
         image: json["image"],
-        speakers: List<Organizer>.from(
-            json["speakers"].map((x) => Organizer.fromJson(x))),
+        speakers: List<Speaker>.from(
+            json["speakers"].map((x) => Speaker.fromJson(x))),
         organizers: List<Organizer>.from(
             json["organizers"].map((x) => Organizer.fromJson(x))),
         links: List<String>.from(json["links"].map((x) => x)),
@@ -69,26 +68,26 @@ class HomeDataEntity {
 class Organizer {
   Organizer({
     required this.name,
-    required this.description,
+    required this.designation,
     required this.socialLinks,
     required this.image,
   });
 
   String name;
-  String description;
+  String designation;
   SocialLinks socialLinks;
   String image;
 
   factory Organizer.fromJson(Map<String, dynamic> json) => Organizer(
         name: json["name"],
-        description: json["description"],
+        designation: json["designation"],
         socialLinks: SocialLinks.fromJson(json["social_links"]),
         image: json["image"],
       );
 
   Map<String, dynamic> toJson() => {
         "name": name,
-        "description": description,
+        "designation": designation,
         "social_links": socialLinks.toJson(),
         "image": image,
       };
@@ -96,20 +95,79 @@ class Organizer {
 
 class SocialLinks {
   SocialLinks({
-    required this.github,
-    required this.instagram,
+    this.linkedin,
+    this.github,
+    this.twitter,
   });
 
-  String github;
-  String instagram;
+  String? linkedin;
+  String? github;
+  String? twitter;
 
   factory SocialLinks.fromJson(Map<String, dynamic> json) => SocialLinks(
+        linkedin: json["linkedin"],
         github: json["github"],
-        instagram: json["instagram"],
+        twitter: json["twitter"],
       );
 
   Map<String, dynamic> toJson() => {
+        "linkedin": linkedin,
         "github": github,
-        "instagram": instagram,
+        "twitter": twitter,
       };
+}
+
+class Speaker {
+  Speaker({
+    required this.name,
+    required this.title,
+    required this.designation,
+    required this.track,
+    required this.socialLinks,
+    this.image,
+  });
+
+  String name;
+  String title;
+  String designation;
+  Track track;
+  SocialLinks socialLinks;
+  String? image;
+
+  factory Speaker.fromJson(Map<String, dynamic> json) => Speaker(
+        name: json["name"],
+        title: json["title"],
+        designation: json["designation"],
+        track: trackValues.map[json["track"]]!,
+        socialLinks: SocialLinks.fromJson(json["social_links"]),
+        image: json["image"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "title": title,
+        "designation": designation,
+        "track": trackValues.reverse[track],
+        "social_links": socialLinks.toJson(),
+        "image": image,
+      };
+}
+
+enum Track { MOBILE_AND_WEB, CLOUD_AND_ML }
+
+final trackValues = EnumValues({
+  "Cloud and ML": Track.CLOUD_AND_ML,
+  "Mobile and Web": Track.MOBILE_AND_WEB
+});
+
+class EnumValues<T> {
+  Map<String, T> map;
+  late Map<T, String> reverseMap;
+
+  EnumValues(this.map);
+
+  Map<T, String> get reverse {
+    reverseMap;
+    return reverseMap;
+  }
 }

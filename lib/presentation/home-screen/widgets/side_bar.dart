@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SideBar extends StatelessWidget {
+class SideBar extends StatefulWidget {
   const SideBar({Key? key}) : super(key: key);
 
   @override
+  State<SideBar> createState() => _SideBarState();
+}
+
+class _SideBarState extends State<SideBar> {
+  double animatedWidth = 60;
+  @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 2000),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -17,14 +25,17 @@ class SideBar extends StatelessWidget {
           ),
         ],
       ),
-      width: 60,
+      width: animatedWidth,
       child: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.all(15),
-              child: Image.asset('assets/images/gdg_logo_black.png'),
+              child: Image.asset(
+                'assets/images/gdg_logo_black.png',
+                height: 25.h,
+              ),
             ),
             SizedBox(
               height: height * 0.35,
@@ -33,14 +44,28 @@ class SideBar extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(
-                    Icons.drag_indicator,
-                    color: Colors.black,
-                    size: 32,
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        if (animatedWidth == 60) {
+                          animatedWidth = 150;
+                        } else {
+                          animatedWidth = 60;
+                        }
+                      });
+                    },
+                    child: const Icon(
+                      Icons.drag_indicator,
+                      color: Colors.black,
+                      size: 32,
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(15),
-                    child: Image.asset('assets/images/devfest_side.png'),
+                    child: Image.asset(
+                      'assets/images/devfest_side.png',
+                      height: 150.h,
+                    ),
                   ),
                 ],
               ),
