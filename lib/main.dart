@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: false,
         builder: (context, child) {
           return MaterialApp(
-              title: 'Flutter Demo',
+              title: 'Devfest Mumbai',
               debugShowCheckedModeBanner: false,
               home: child);
         },
