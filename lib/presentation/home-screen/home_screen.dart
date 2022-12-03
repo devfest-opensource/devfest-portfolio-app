@@ -1,4 +1,3 @@
-import 'package:devfest_portfolio_app/presentation/home-screen/widget/side_bar.dart';
 import 'package:devfest_portfolio_app/presentation/home-screen/widgets/home_card.dart';
 import 'package:devfest_portfolio_app/presentation/home-screen/widgets/previous_card.dart';
 import 'package:devfest_portfolio_app/presentation/home-screen/widgets/previous_text.dart';
@@ -107,7 +106,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         );
       },
->>>>>>> 77a2dbc904370960f04c4cf35e1d54a1abb7f866
     );
   }
 }
