@@ -204,6 +204,43 @@ class _SideBarState extends State<SideBar> {
                   ? Padding(
                       padding: EdgeInsets.symmetric(horizontal: 6.w),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              launchUrlString(
+                                'https://www.linkedin.com/in/amey-muke-065456205',
+                                mode: LaunchMode.externalApplication,
+                              );
+                            },
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  radius: 30.h,
+                                  backgroundImage: const AssetImage(
+                                    'assets/images/amey.jpg',
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5.h,
+                                ),
+                                Text(
+                                  "Amey Muke",
+                                  style: subHeading.copyWith(
+                                    fontSize: 10.sp,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  : const SizedBox.shrink(),
+              showContributors
+                  ? Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 6.w),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           InkWell(
