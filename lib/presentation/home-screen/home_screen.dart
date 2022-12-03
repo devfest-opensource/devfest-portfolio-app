@@ -5,8 +5,10 @@ import 'package:devfest_portfolio_app/presentation/home-screen/widgets/side_bar.
 import 'package:devfest_portfolio_app/providers/home-provider/home_provider.dart';
 import 'package:devfest_portfolio_app/providers/previous-devfest-provider/previous_devfest_provider.dart';
 import 'package:devfest_portfolio_app/utils/colors.dart';
+import 'package:devfest_portfolio_app/utils/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -62,11 +64,29 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               const HomeCard(),
                               SizedBox(
-                                height: 75.h,
+                                height: 50.h,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 30.w),
+                                child: Row(
+                                  children: [
+                                    LottieBuilder.asset(
+                                      'assets/images/arrow.json',
+                                      height: 50.h,
+                                    ),
+                                    Text(
+                                      "Check out the Contributors",
+                                      style: subHeading.copyWith(
+                                        color: blueShade,
+                                        fontSize: 15.sp,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                               SizedBox(
                                 key: dataKey,
-                                height: 75.h,
+                                height: 50.h,
                               ),
                               InkWell(
                                 onTap: () => Scrollable.ensureVisible(
