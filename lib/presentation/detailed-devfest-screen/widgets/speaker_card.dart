@@ -15,7 +15,10 @@ class SpeakerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        launchUrl(Uri.parse(speaker.socialLinks.linkedin!));
+        launchUrl(
+          Uri.parse(speaker.socialLinks.linkedin!),
+          mode: LaunchMode.externalApplication,
+        );
       },
       child: Container(
         padding: const EdgeInsets.all(10),
