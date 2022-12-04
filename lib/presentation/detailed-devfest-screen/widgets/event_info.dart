@@ -1,4 +1,5 @@
 import 'package:devfest_portfolio_app/presentation/detailed-devfest-screen/widgets/organizer_card.dart';
+import 'package:devfest_portfolio_app/presentation/detailed-devfest-screen/widgets/social_links.dart';
 import 'package:devfest_portfolio_app/presentation/detailed-devfest-screen/widgets/speaker_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -81,6 +82,32 @@ class EventInfo extends StatelessWidget {
               shrinkWrap: true,
             ),
           ),
+          SizedBox(
+            height: 90.w,
+            child: Links(link: homeDataEntity.links ,),
+          ),
+          SizedBox(
+            height: 40,
+            width: double.infinity,
+            child: TextButton(
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                  overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                        (Set<MaterialState> states) {
+                      if (states.contains(MaterialState.hovered))
+                        return Colors.white.withOpacity(0.04);
+                      if (states.contains(MaterialState.focused) ||
+                          states.contains(MaterialState.pressed))
+                        return Colors.white.withOpacity(0.12);
+                      return null; // Defer to the widget's default.
+                    },
+                  ),
+                ),
+                onPressed: () { Navigator.of(context).pop();},
+                child: Text('View past DevFests',style: TextStyle(color: Color(0xffffffff),fontSize: 20),)
+            ),
+          )
         ],
       ),
     );
