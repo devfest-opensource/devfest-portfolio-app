@@ -24,7 +24,7 @@ class Links extends StatelessWidget {
             icon: Image.asset('assets/images/gdgmad.jpg'),
             color: Colors.grey,
             onPressed: () {
-              launchUrlString(link[0]);
+              launchUrlString(link[0],mode: LaunchMode.externalApplication);
             },
           ),
         ),
@@ -35,7 +35,7 @@ class Links extends StatelessWidget {
             icon: Image.asset('assets/images/twitter.png'),
             color: Colors.grey,
             onPressed: () {
-              launchUrlString(link[1]);
+              launchUrlString(link[1],mode: LaunchMode.externalApplication);
             },
           ),
         ),
@@ -46,7 +46,7 @@ class Links extends StatelessWidget {
             icon: Image.asset('assets/images/youtube.png'),
             color: Colors.grey,
             onPressed: () {
-              launchUrlString(link[2]);
+              launchUrlString(link[2],mode: LaunchMode.externalApplication);
             },
           ),
         ),
