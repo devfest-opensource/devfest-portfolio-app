@@ -17,21 +17,24 @@ class _DetailedDevfestScreenState extends State<DetailedDevfestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        children: [
-          const SideBar(),
-          const SizedBox(width: 20,),
-          SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  MainEventCard(homeDataEntity: widget.homeDataEntity,),
-                  EventInfo(homeDataEntity: widget.homeDataEntity,),
-                ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            const SideBar(),
+            const SizedBox(width: 20,),
+            SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    MainEventCard(homeDataEntity: widget.homeDataEntity,),
+                    EventInfo(homeDataEntity: widget.homeDataEntity,),
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       )
     );
   }
