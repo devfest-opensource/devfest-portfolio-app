@@ -1,7 +1,6 @@
 import 'package:devfest_portfolio_app/presentation/detailed-devfest-screen/widgets/organizer_card.dart';
 import 'package:devfest_portfolio_app/presentation/detailed-devfest-screen/widgets/speaker_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../entities/home_data_entity.dart';
@@ -53,10 +52,14 @@ class EventInfo extends StatelessWidget {
           ListView.builder(
             primary: false,
             itemCount: homeDataEntity.speakers.length,
-            itemBuilder: (context, index) => SpeakerCard(speaker: homeDataEntity.speakers[index],),
+            itemBuilder: (context, index) => SpeakerCard(
+              speaker: homeDataEntity.speakers[index],
+            ),
             shrinkWrap: true,
           ),
-          SizedBox(height: 20.h,),
+          SizedBox(
+            height: 20.h,
+          ),
           Text(
             "Organizers",
             style: subHeading.copyWith(
@@ -73,10 +76,11 @@ class EventInfo extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               primary: false,
               itemCount: homeDataEntity.organizers.length,
-              itemBuilder: (context, index) => OrganizerCard(organizer: homeDataEntity.organizers[index]),
+              itemBuilder: (context, index) =>
+                  OrganizerCard(organizer: homeDataEntity.organizers[index]),
               shrinkWrap: true,
             ),
-          )
+          ),
         ],
       ),
     );

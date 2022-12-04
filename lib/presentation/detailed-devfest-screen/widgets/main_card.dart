@@ -1,19 +1,21 @@
 import 'package:devfest_portfolio_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../entities/home_data_entity.dart';
 import '../../../utils/textstyle.dart';
 
 class MainEventCard extends StatelessWidget {
-  const MainEventCard({Key? key, required this.homeDataEntity}) : super(key: key);
+  const MainEventCard({Key? key, required this.homeDataEntity})
+      : super(key: key);
 
   final HomeDataEntity homeDataEntity;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+      padding: EdgeInsets.fromLTRB(20.w, 20.h, 20.w, 20.h),
       width: 295.w,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -83,7 +85,6 @@ class MainEventCard extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-
           Text(
             homeDataEntity.date,
             style: subHeading.copyWith(
@@ -91,66 +92,66 @@ class MainEventCard extends StatelessWidget {
               fontSize: 12.sp,
             ),
           ),
-
           Text(
             homeDataEntity.venue[0],
             style: subHeading.copyWith(
-                color: blueShade,
+              color: blueShade,
             ),
           ),
-
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: blueShade)
-            ),
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              children: [
-                Text(
-                  "Free",
-                  style: subHeading.copyWith(
+          InkWell(
+            onTap: () {
+              launchUrlString(homeDataEntity.registrationLink);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: blueShade)),
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  Text(
+                    "Free",
+                    style: subHeading.copyWith(
                       color: blueShade,
                       fontSize: 12.sp,
+                    ),
                   ),
-                ),
-                Container(
-                  height: 30.h,
-                  width: 120.w,
-                  decoration: BoxDecoration(
-                    color: blueShade,
-                    borderRadius: BorderRadius.circular(5.r),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Reserve a spot",
-                      style: normalHeading.copyWith(
-                        color: Colors.white,
-                        fontSize: 12.sp,
+                  Container(
+                    height: 30.h,
+                    width: 120.w,
+                    decoration: BoxDecoration(
+                      color: blueShade,
+                      borderRadius: BorderRadius.circular(5.r),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Reserve a spot",
+                        style: normalHeading.copyWith(
+                          color: Colors.white,
+                          fontSize: 12.sp,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-
           SizedBox(
             height: 20.h,
           ),
-
           Text(
             "Details",
             style: subHeading.copyWith(
-                color: blueShade,
-                fontSize: 12.sp,
+              color: blueShade,
+              fontSize: 12.sp,
             ),
           ),
           Text(
             homeDataEntity.description,
             style: subHeading.copyWith(
-                color: Colors.grey,
-                fontSize: 12.sp,
+              color: Colors.grey,
+              fontSize: 12.sp,
             ),
           ),
         ],
