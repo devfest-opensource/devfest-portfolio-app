@@ -31,12 +31,10 @@ class OrganizerCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ClipOval(
-            // Replace this with avatar
-            child: Container(
-              width: 50,
-              height: 50,
-              color: Colors.grey,
+          CircleAvatar(
+            radius: 25,
+            child: ClipOval(
+              child: Image.network(organizer.image),
             ),
           ),
           Text(
