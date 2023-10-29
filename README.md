@@ -1,16 +1,21 @@
-a# devfest_portfolio_app
+# DevFest Mumbai App
 
-A new Flutter project.
+![DevFest Mumbai Logo](https://cache.sessionize.com/image/5959-1140o400o3-Jesdy9vQybnWMcMmaFsja.png)
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter application.
+Welcome to the DevFest Mumbai App! This mobile application is designed to provide you with all the information you need for DevFest Mumbai, including details about past and present DevFests, pass bookings, speaker information, venue details, schedules, and more. Whether you're a participant, speaker, or an organizer, this app will be your go-to resource for all things related to DevFest Mumbai.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+-   **Event Details**: Get comprehensive information about the current and past DevFests, including dates, themes, and a brief overview.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-   **Pass Booking**: Reserve your passes for the upcoming DevFest Mumbai and stay updated on booking status.
+
+-   **Speaker Profiles**: Explore the profiles of our esteemed speakers, learn about their background, and view their session details.
+
+-   **Schedule**: Access the event schedule to plan your day, with information on sessions, workshops, and networking opportunities.
+
+-   **Venue Information**: Find out about the event venue, directions, parking, and facilities to ensure a smooth experience.
+
+-   **Updates**: Stay informed with all the updates, announcements, and notifications for the event.
